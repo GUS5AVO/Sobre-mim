@@ -45,6 +45,13 @@ header {
     transition: all 0.3s ease-in-out;
 }
 
+/* Estilos para a logo */
+.logo {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
 nav {
     position: relative;
 }
