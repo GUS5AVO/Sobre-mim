@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GM-Soluçoes Digital - Desenvolvedor Web</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>GM-Soluçoes</h1>
         <p>Desenvolvedor Full Stack | Criando soluções web eficientes</p>
         <nav>
-            <ul>
+            <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+            <ul id="menu">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#portfolio">Portfólio</a></li>
@@ -38,19 +39,24 @@
     
     <section id="portfolio">
         <h2>Portfólio</h2>
-        <p>Em breve, aqui estarão alguns dos meus projetos.</p>
+        <div class="project">
+            <h3>projeto-frontend</h3> <!-- Nome ajustado -->
+            <p>Este é um exemplo de projeto frontend desenvolvido com HTML, CSS e JavaScript.</p>
+            <a href="https://github.com/GUS5AVO/projeto-frontend" target="_blank" class="project-link">Ver no GitHub</a>
+        </div>
     </section>
     
     <section id="contato">
         <h2>Contato</h2>
-        <form id="contact-form">
-             <input type="text" id="name" placeholder="Seu Nome" required>
-             <input type="email" id="email" placeholder="Seu Email" required>
-             <textarea id="message" placeholder="Sua Mensagem" required></textarea>
-             <button type="submit">Enviar</button>
-        </form>
-    </section>
-    
+        <div class="contact-container">
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Seu Nome" required>
+                <input type="email" id="email" placeholder="Seu Email" required>
+                <textarea id="message" placeholder="Sua Mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="contact-message"></div> <!-- Contêiner para mensagens -->
+        </div>
     </section>
     
     <footer>

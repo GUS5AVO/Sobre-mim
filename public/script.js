@@ -1,26 +1,32 @@
-// Adiciona efeito ao cabeçalho ao rolar a página
-document.addEventListener("scroll", function () {
-    let header = document.querySelector("header");
-    if (window.scrollY > 50) {
-        header.style.background = "rgba(0, 102, 204, 0.9)";
-    } else {
-        header.style.background = "linear-gradient(135deg, #0066cc, #0099ff)";
-    }
-});
+// Função para exibir notificações visuais
+function showToast(message, isError = false) {
+    const toast = document.createElement("div");
+    toast.className = `toast ${isError ? "error" : "success"}`;
+    toast.textContent = message;
 
-// Efeito de fade-in nas seções
-document.addEventListener("DOMContentLoaded", function () {
-    let sections = document.querySelectorAll("section");
-    sections.forEach(section => {
-        section.style.opacity = "0";
-        section.style.transform = "translateY(30px)";
-        setTimeout(() => {
-            section.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
-            section.style.opacity = "1";
-            section.style.transform = "translateY(0)";
-        }, 300);
-    });
-});
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+// Função para exibir mensagens no contêiner ao lado do formulário
+function showContactMessage(message, isError = false) {
+    const messageContainer = document.getElementById("contact-message");
+    messageContainer.textContent = message;
+    messageContainer.className = isError ? "error" : "success";
+    messageContainer.style.display = "block";
+
+    setTimeout(() => {
+        messageContainer.style.display = "none";
+    }, 3000);
+}
 
 // Formulário de contato funcional
 document.addEventListener("DOMContentLoaded", function () {
@@ -33,12 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let message = document.querySelector("#message").value;
         
         if (name === "" || email === "" || message === "") {
-            alert("Por favor, preencha todos os campos!");
+            showContactMessage("Por favor, preencha todos os campos!", true);
             return;
         }
         
-        // Envia os dados para o servidor via fetch
-        fetch("http://localhost:3000/contact", {
+        fetch("sobre-mim.railway.internal", { // Substitua pela URL do backend
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -47,12 +52,33 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(response => response.json())
         .then(data => {
-            alert(data.message || "Mensagem enviada com sucesso!");
+            showContactMessage(data.message || "Mensagem enviada com sucesso!");
             form.reset();
         })
         .catch(error => {
             console.error("Erro:", error);
-            alert("Ocorreu um erro ao enviar a mensagem.");
+            showContactMessage("Ocorreu um erro ao enviar a mensagem.", true);
         });
     });
+});
+
+// Menu responsivo
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+
+    menuToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+        });
+    });
+});
+
+document.getElementById('menu-toggle').addEventListener('click', () => {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('show');
 });
