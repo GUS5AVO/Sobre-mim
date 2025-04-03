@@ -435,6 +435,15 @@ section:hover {
         font-size: 16px;
         padding: 10px 20px;
     }
+
+    .whatsapp-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        max-width: 80px; /* Reduz o tamanho da logo em telas menores */
+    }
 }
 
 /* Estilos para tablets (telas entre 481px e 768px) */
