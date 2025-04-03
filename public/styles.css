@@ -672,3 +672,32 @@ section:hover {
 .toast.error {
     background: #ff4d4d;
 }
+
+/* Estilos para o botão de ação do WhatsApp */
+.whatsapp-action {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    background: #25d366;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-button:hover {
+    background: #1ebe5b;
+    transform: scale(1.05);
+}
+
+.whatsapp-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}

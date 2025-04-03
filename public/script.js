@@ -43,22 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
         
-        fetch("sobre-mim.railway.internal", { // Substitua pela URL do backend
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ name, email, message })
-        })
-        .then(response => response.json())
-        .then(data => {
-            showContactMessage(data.message || "Mensagem enviada com sucesso!");
-            form.reset();
-        })
-        .catch(error => {
-            console.error("Erro:", error);
-            showContactMessage("Ocorreu um erro ao enviar a mensagem.", true);
-        });
+        // Redireciona para o WhatsApp com a mensagem predefinida
+        const whatsappNumber = "5547996880573";
+        const whatsappMessage = `Olá, meu nome é ${name}. Meu e-mail é ${email}. Gostaria de falar sobre: ${message}`;
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Redireciona para o WhatsApp
+        window.open(whatsappURL, "_blank");
     });
 });
 

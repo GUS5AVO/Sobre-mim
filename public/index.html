@@ -49,13 +49,18 @@
     <section id="contato">
         <h2>Contato</h2>
         <div class="contact-container">
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Seu Nome" required>
-                <input type="email" id="email" placeholder="Seu Email" required>
-                <textarea id="message" placeholder="Sua Mensagem" required></textarea>
+            <form id="contact-form" action="https://wa.me/5511999999999" method="get" target="_blank">
+                <input type="text" id="name" name="name" placeholder="Seu Nome" required>
+                <input type="email" id="email" name="email" placeholder="Seu Email" required>
+                <textarea id="message" name="text" placeholder="Sua Mensagem" required></textarea>
                 <button type="submit">Enviar</button>
             </form>
             <div id="contact-message"></div> <!-- Contêiner para mensagens -->
+        </div>
+        <div class="whatsapp-action">
+            <a href="https://wa.me/5547996880573" target="_blank" class="whatsapp-button">
+                Fale Conosco no WhatsApp
+            </a>
         </div>
     </section>
     
