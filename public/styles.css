@@ -155,42 +155,44 @@ nav ul li a:hover {
 }
 
 @media (max-width: 768px) {
+    header {
+        flex-direction: row; /* Alinha os elementos em linha */
+        justify-content: space-between; /* Espaça os elementos */
+        align-items: center; /* Centraliza verticalmente */
+    }
+
+    #menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px; /* Move o botão para o lado direito */
+    }
+
     #menu {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%;
-        left: 0;
+        top: 60px;
+        right: 0; /* Alinha o menu ao lado direito */
         background-color: #fff;
         width: 100%;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
 
     #menu.show {
         display: flex;
     }
 
-    #menu-toggle {
-        display: block;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-    
-    .nav-menu {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(0, 102, 204, 0.9);
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
+    nav ul {
+        flex-direction: column; /* Alinha os itens verticalmente */
+        gap: 10px;
     }
 
     nav ul li a {
         font-size: 16px;
         padding: 8px 15px;
+        color: #000; /* Ajusta a cor para contraste */
     }
 }
 
